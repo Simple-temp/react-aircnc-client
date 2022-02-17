@@ -1,0 +1,16 @@
+.expe-body span{
+    font-weight:bold;
+    font-size:10px;
+}
+.expe-body h6 {
+    font-size:15px;
+}
+.rating{
+    color:rgba(43,222,140,255);
+    font-size:11px;
+}
+@media (max-width:990px) {
+    .expe-box{
+        margin-bottom:18px;
+    }
+}

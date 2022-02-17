@@ -1,0 +1,11 @@
+@media (max-width:768px) {
+    .damydata{
+        margin-top:22px;
+    }
+}
+@media (max-width:540px) {
+    .row
+    {
+        --bs-gutter-x: 10px;
+    }
+}
