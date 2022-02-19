@@ -1,16 +1,28 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home/Home";
+import SearchResult from "./Pages/SearchResult/SearchResult/SearchResult";
+
+export const UserContext = createContext()
 
 function App() {
+
+  const [userInfo, setUserInfo] = useState([])
+
   return (
+
     <div className="App">
-      <Router>
+      <UserContext.Provider value={[userInfo, setUserInfo]}>
+        <Router>
           <Routes>
-            <Route path="/" element={<Home/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/searchingResult" element={<SearchResult />} />
+            <Route path="/searchingResult/:searchInput" element={<SearchResult />} />
           </Routes>
-      </Router>
+        </Router>
+      </UserContext.Provider>
     </div>
+
   );
 }
 

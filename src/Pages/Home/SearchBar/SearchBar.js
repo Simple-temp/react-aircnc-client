@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./SearchBar.css"
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
@@ -6,8 +6,17 @@ import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
+import { UserContext } from '../../../App';
+import { Link, Navigate } from 'react-router-dom';
 
 const SearchBar = () => {
+    const [userInfo, setUserInfo] = useContext(UserContext)
+
+    const handleBlur = (e) =>{
+        const searching = e.target.value
+        const obj = {searchInput:searching}
+        setUserInfo(obj)
+    }
 
     const [parent, setParent] = useState(0)
     const [child, setChild] = useState(0)
@@ -75,13 +84,35 @@ const SearchBar = () => {
 
     }
 
+    
+    // const [search,setSearch] = useState({})
+    // const [getitem,setGetitem] = useState([])
+    // const [filter,setFilter] = useState([])
+
+    // useEffect(()=>{
+    //     fetch(`http://localhost:4000/getitem`)
+    //     .then(res=>res.json())
+    //     .then(data=>setGetitem(data))
+    // },[])
+
+    // useEffect(()=>{
+    //     setFilter(
+    //         getitem.filter( (item) => item.name.toLowerCase().includes(search.toLowerCase()) )
+    //     )
+    // },[search,getitem])
+
+    // const searchBtn = () =>{
+    //     console.log(userInfo.searchInput)
+    //     console.log(filter)
+    // }
+
     return (
         <div className='searchbar'>
             <h4 className='mb-1'>Where do you want to go</h4>
 
             <form action="" className='location'>
                 <label htmlFor="">loaction</label>
-                <input type="text" name="search" placeholder='Add city,Landmark or Address' className='search-field w-100' />
+                <input required onChange={handleBlur} type="text" name="search" placeholder='Add city,Landmark or Address' className='search-field w-100' />
             </form>
 
             <div className="date-box">
@@ -159,8 +190,7 @@ const SearchBar = () => {
                 <button className='apply-btn' onClick={handleApply}>apply</button>
             </div>
 
-            <button className='search-btn mt-2 d-block w-100'><i class="fa-solid fa-magnifying-glass"></i>search</button>
-            
+        <Link to={`/searchingResult/${userInfo.searchInput}`} className="Link"><button className='search-btn mt-2 d-block w-100'><i class="fa-solid fa-magnifying-glass"></i>search</button></Link>    
 
         </div>
     );
