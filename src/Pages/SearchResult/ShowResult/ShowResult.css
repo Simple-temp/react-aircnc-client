@@ -1,0 +1,44 @@
+.right ul {
+    padding-left: 0rem;
+    list-style:none;
+    font-size:13px;
+    display:flex;
+    margin-top:4px;
+}
+.right ul li{
+    margin-right:4px;
+    text-transform:capitalize;
+}
+.searchlocation h6{
+    text-transform:capitalize;
+    font-weight:bold;
+}
+.right p{
+    text-transform:capitalize;
+    padding-bottom:0rem;
+}
+.right-des{
+    text-transform:capitalize;
+    font-size:15px;
+}
+.s-item{
+    border-bottom:2px solid rgb(211, 211, 211);
+    padding:15px;
+}
+i{
+    margin-right:4px;
+}
+.not-found {
+    margin-top:200px;
+}
+.not-found p{
+    padding-bottom:0rem;
+    font-size:20px;
+    margin-top:20px;
+    margin-right:10px;
+    text-transform:capitalize;
+}
+.not-found i{
+    font-size:40px;
+    color:rgb(0, 0, 0);
+}
