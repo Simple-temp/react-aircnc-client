@@ -36,7 +36,7 @@ const Homes = () => {
             <div className="container mt-4">
                 <div className="row">
                     {
-                        homes.map( home => <HomesInfo home={home}></HomesInfo> )
+                        homes.map( home => <HomesInfo home={home} key={Math.random()}></HomesInfo> )
                     }
                 </div>
             </div>

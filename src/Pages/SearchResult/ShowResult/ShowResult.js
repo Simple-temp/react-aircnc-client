@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../../../App';
 import "./ShowResult.css"
 
 const ShowResult = () => {
 
     const { searchInput } = useParams()
-
 
     const [getSearchItem, setgetSearchitem] = useState([])
 
@@ -28,7 +26,7 @@ const ShowResult = () => {
                             <p>Undefined result...</p>
                             <i class="fa-solid fa-face-smile"></i>
                             </div>:
-                        getSearchItem.map(result => <ShowSearchItem result={result} key={result._id}></ShowSearchItem>)
+                        getSearchItem.map(resultitem => <ShowSearchItem result={resultitem} key={resultitem._id}></ShowSearchItem>)
                     }
                 </div>
             </div>

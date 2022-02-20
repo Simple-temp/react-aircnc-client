@@ -7,14 +7,17 @@ import {
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import { UserContext } from '../../../App';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
+
     const [userInfo, setUserInfo] = useContext(UserContext)
 
-    const handleBlur = (e) =>{
+    const [info,setInfo] = useState({})
+
+    const handleBlur = (e) => {
         const searching = e.target.value
-        const obj = {searchInput:searching}
+        const obj = { searchInput: searching }
         setUserInfo(obj)
     }
 
@@ -22,89 +25,87 @@ const SearchBar = () => {
     const [child, setChild] = useState(0)
     const [baby, setBaby] = useState(0)
 
-    const parentincrement = () =>{
+    const parentincrement = () => {
         setParent(parent + 1)
     }
 
-    const parentdecrement = () =>{
-        if(parent > 0){
+    const parentdecrement = () => {
+        if (parent > 0) {
             setParent(parent - 1)
-        }else{
+        } else {
             setParent(0)
         }
     }
 
-    const childIncrement = () =>{
+    const childIncrement = () => {
         setChild(child + 1)
     }
 
-    const childDecrement = () =>{
-        if(child > 0){
+    const childDecrement = () => {
+        if (child > 0) {
             setChild(child - 1)
-        }else{
+        } else {
             setChild(0)
         }
     }
 
-    const babyIncrement = () =>{
+    const babyIncrement = () => {
         setBaby(baby + 1)
     }
 
-    const babyDecrement = () =>{
-        if(baby > 0){
+    const babyDecrement = () => {
+        if (baby > 0) {
             setBaby(baby - 1)
-        }else{
+        } else {
             setBaby(0)
         }
     }
 
     const [selectedDate, setSelectedDate] = useState(
         {
-            startdate : new Date(),
-            enddate : new Date()
+            startdate: new Date(),
+            enddate: new Date()
         }
     );
 
     const handleStartingDate = (date) => {
-        const start = {...selectedDate}
+        const start = { ...selectedDate }
         start.startdate = date
         setSelectedDate(start)
     };
 
-    const handleEndingDate = (date) =>{
-        const end = {...selectedDate}
+    const handleEndingDate = (date) => {
+        const end = { ...selectedDate }
         end.enddate = date
         setSelectedDate(end)
     }
 
-    const handleApply = () =>{
 
-        const applyInfo = {adults : parent, child : child, baby : baby ,...selectedDate}
+    const handleApply = () => {
+
+        const applyInfo = { ...info, adults: parent, child: child, baby: baby, ...selectedDate }
+
         console.log(applyInfo)
+        fetch('http://localhost:4000/applyguest', {
+            method: 'POST',
+            body: JSON.stringify(applyInfo),
+            headers: {
+                'Content-type': 'application/json',
+            }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                alert("Apply succesfully, Now search the location")
+            });
 
     }
 
-    
-    // const [search,setSearch] = useState({})
-    // const [getitem,setGetitem] = useState([])
-    // const [filter,setFilter] = useState([])
-
-    // useEffect(()=>{
-    //     fetch(`http://localhost:4000/getitem`)
-    //     .then(res=>res.json())
-    //     .then(data=>setGetitem(data))
-    // },[])
-
-    // useEffect(()=>{
-    //     setFilter(
-    //         getitem.filter( (item) => item.name.toLowerCase().includes(search.toLowerCase()) )
-    //     )
-    // },[search,getitem])
-
-    // const searchBtn = () =>{
-    //     console.log(userInfo.searchInput)
-    //     console.log(filter)
-    // }
+    const getemail = (e) =>{
+        const newFile = {...info}
+        newFile[e.target.name] = e.target.value
+        setInfo(newFile)
+    }
 
     return (
         <div className='searchbar'>
@@ -112,7 +113,7 @@ const SearchBar = () => {
 
             <form action="" className='location'>
                 <label htmlFor="">loaction</label>
-                <input required onChange={handleBlur} type="text" name="search" placeholder='Add city,Landmark or Address' className='search-field w-100' />
+                <input required onBlur={handleBlur} type="text" name="search" placeholder='Add city,Landmark or Address' className='search-field w-100' />
             </form>
 
             <div className="date-box">
@@ -157,6 +158,11 @@ const SearchBar = () => {
             </div>
 
             <div className="user-details mt-3 date">
+                <form action="">
+                    <div className="email-input">
+                        <input required onChange={getemail} type="email" name="email" placeholder='Enter valid email' className='w-100 pt-3' />
+                    </div>
+                </form>
                 <div className="result-box">
                     <span>guests</span>
                     <div className="total-member d-flex">
@@ -190,10 +196,37 @@ const SearchBar = () => {
                 <button className='apply-btn' onClick={handleApply}>apply</button>
             </div>
 
-        <Link to={`/searchingResult/${userInfo.searchInput}`} className="Link"><button className='search-btn mt-2 d-block w-100'><i class="fa-solid fa-magnifying-glass"></i>search</button></Link>    
+            <Link to={`/searchingResult/${userInfo.searchInput}`} className="Link"><button className='search-btn mt-2 d-block w-100'><i class="fa-solid fa-magnifying-glass"></i>search</button></Link>
 
         </div>
     );
 };
 
 export default SearchBar;
+
+
+
+
+
+/*
+    // const [search,setSearch] = useState({})
+    // const [getitem,setGetitem] = useState([])
+    // const [filter,setFilter] = useState([])
+
+    // useEffect(()=>{
+    //     fetch(`http://localhost:4000/getitem`)
+    //     .then(res=>res.json())
+    //     .then(data=>setGetitem(data))
+    // },[])
+
+    // useEffect(()=>{
+    //     setFilter(
+    //         getitem.filter( (item) => item.name.toLowerCase().includes(search.toLowerCase()) )
+    //     )
+    // },[search,getitem])
+
+    // const searchBtn = () =>{
+    //     console.log(userInfo.searchInput)
+    //     console.log(filter)
+    // }
+*/

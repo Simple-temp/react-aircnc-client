@@ -44,7 +44,7 @@ const Experience = () => {
             <div className="container mt-4 experience">
                 <div className="row">
                     {
-                        experience.map( expe => <ExpericenceInfo expe={expe}></ExpericenceInfo> )
+                        experience.map( expe => <ExpericenceInfo expe={expe} key={Math.random()}></ExpericenceInfo> )
                     }
                 </div>
             </div>

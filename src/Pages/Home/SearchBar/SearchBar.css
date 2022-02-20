@@ -120,3 +120,9 @@ form label{
 .Link{
     text-decoration:none;
 }
+.email-input label{
+    font-weight:600;
+}
+.email-input input {
+    border:none;
+}

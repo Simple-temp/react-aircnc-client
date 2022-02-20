@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddData from "./Pages/AddData/AddData";
 import Home from "./Pages/Home/Home/Home";
+import Login from "./Pages/LoginPage/Login";
 import SearchResult from "./Pages/SearchResult/SearchResult/SearchResult";
 
 export const UserContext = createContext()
@@ -20,6 +21,7 @@ function App() {
             <Route path="/addData" element={<AddData />} />
             <Route path="/searchingResult" element={<SearchResult />} />
             <Route path="/searchingResult/:searchInput" element={<SearchResult />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
       </UserContext.Provider>
