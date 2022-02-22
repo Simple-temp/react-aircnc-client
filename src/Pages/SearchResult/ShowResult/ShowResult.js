@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "./ShowResult.css"
 
 const ShowResult = () => {
@@ -36,7 +36,7 @@ const ShowResult = () => {
 
 function ShowSearchItem({ result }) {
 
-    const { name, des, baths, rating, price, image } = result
+    const { name, des, baths, rating, price, image ,key } = result
 
     return (
         <div className='s-item'>
@@ -47,7 +47,7 @@ function ShowSearchItem({ result }) {
                 <div className="col-lg-6 col-md-12 col-12">
                     <div className="right-side">
                         <div className="right">
-                            <p>{name}</p>
+                            <Link to={`/profile/${key}`} className="Link"><p>{name}</p></Link>
                             <ul>
                                 <li>{baths} guests</li>
                                 <li>{baths} bedrooms</li>

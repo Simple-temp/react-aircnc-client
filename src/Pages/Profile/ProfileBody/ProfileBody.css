@@ -1,0 +1,63 @@
+.p-location ul{
+    list-style:none;
+    display:flex;
+    padding-left:0rem;
+}
+.p-location ul li {
+    margin-right:10px;
+    text-transform:capitalize;
+}
+.user-profile h4{
+    text-transform: capitalize;
+}
+.p-body-head ul{
+    list-style:none;
+    padding-left:0rem;
+}
+.p-body-head ul li{
+    margin-top:40px;
+}
+.p-body-head ul li img{
+    width:20px;
+    height:20px;
+}
+.p-body-head ul li span {
+    line-height:20px;
+    text-transform:capitalize;
+    margin-left:20px;
+}
+.b-top{
+    border-top:1px solid rgb(197, 197, 197);
+}
+.p-body-f i{
+    color:rgba(43,222,140,255)
+}
+.p-body-f label{
+    font-weight:600;
+}
+.profile-review i {
+    color:rgba(43,222,140,255)
+}
+.guests-box-info ul {
+    list-style:none;
+    padding-left:0rem;
+}
+.guests-box-info ul li 
+{
+    padding:13px 0;
+    position: relative;
+    width:100%;
+    border-bottom:1px solid rgb(197, 197, 197);
+    text-transform:capitalize;
+}
+.guests-box-info ul li span {
+    position: absolute;
+    right:0;
+}
+.guests-dates {
+    border:1px solid rgb(170, 170, 170);
+    padding:10px;
+}
+.guests-dates i{
+    margin: 0 30px;
+}

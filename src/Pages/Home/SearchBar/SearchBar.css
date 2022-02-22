@@ -119,6 +119,10 @@ form label{
 }
 .Link{
     text-decoration:none;
+    color:#000;
+}
+.Link:hover{
+    color:#000;
 }
 .email-input label{
     font-weight:600;
