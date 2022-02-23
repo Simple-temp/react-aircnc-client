@@ -23,10 +23,10 @@ const ProfileHeader = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 col-md-6 col-12">
-                        <img src={bulding} alt="" className='img-fluid w-100' style={{ height: "450px" }} />
+                        <img src={bulding} alt="" className='img-fluid w-100 p-img' />
                     </div>
                     <div className="col-lg-6 col-md-6 col-12">
-                        <img src={room} alt="" className='img-fluid w-100' style={{ height: "450px" }} />
+                        <img src={room} alt="" className='img-fluid w-100 p-img' />
                         {/* <img src={`data:image/png;base64,${image.img}`} alt="" className='img-fluid w-100' style={{ height: "450px" }} /> */}
                     </div>
                 </div>

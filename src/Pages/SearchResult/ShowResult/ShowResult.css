@@ -42,3 +42,8 @@ i{
     font-size:40px;
     color:rgb(0, 0, 0);
 }
+@media (max-width:990px) {
+    .right-side{
+        margin-top:13px;
+    }
+}

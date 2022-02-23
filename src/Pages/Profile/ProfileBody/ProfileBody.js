@@ -42,7 +42,7 @@ const ProfileBody = () => {
 
     return (
         <div class="user-profile">
-            <div className="container w-75 mx-auto mt-4">
+            <div className="container mt-4">
                 <div className="row">
                     <div className="col-lg-6 col-md-6 col-12">
                         <h4>{name}</h4> <img src={userInfo.img} alt="" className='m-2' style={{width:"30px",height:"30px",borderRadius:"50px"}} />

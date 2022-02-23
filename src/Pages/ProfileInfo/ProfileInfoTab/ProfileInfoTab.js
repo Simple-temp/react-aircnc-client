@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./ProfileInfoTab.css"
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
@@ -16,6 +16,7 @@ import BankPayment from '../BankPayment/BankPayment';
 import PaypalPayment from '../PaypalPayment/PaypalPayment';
 import { CardElement, Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { UserContext } from '../../../App';
 
 const stripePromise = loadStripe('pk_test_51KJhEFFesKPGWiP3YH9pPx3aDpRX44wil8afCvneKe2ziTVEPoBgXnEFnanssjwK1RbAeyKbQV5kSBYGcjeOsxoB00m0ZXAjF8');
 
@@ -59,6 +60,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProfileInfoTab = ({ startdate, enddate }) => {
+
+    const [userInfo, setUserInfo] = useContext(UserContext)
 
     const options = {
         // passing the client secret obtained from the server
@@ -128,7 +131,10 @@ const ProfileInfoTab = ({ startdate, enddate }) => {
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     <div className="who-coming">
-                        <h3>traveling for work</h3>
+                        <div className="who-heading d-flex">
+                            <h3>traveling for work</h3>
+                            <img src={userInfo.img} alt="" style={{width:"40px",height:"40px",borderRadius:"50px"}} />
+                        </div>
                         <p className='my-4' >Say hello to youe host <br /> let rowdra know a little about your self and why you are comming </p>
                         <textarea name="sms" id="" cols="20" rows="6" className='w-100 textarea' placeholder='Optional'></textarea>
                         <button className='search-btn mt-4'>continue</button>
