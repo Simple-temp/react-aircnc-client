@@ -5,6 +5,7 @@ import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/LoginPage/Login";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Profile from "./Pages/Profile/Profile/Profile";
+import ProfileInfo from "./Pages/ProfileInfo/ProfileInfo/ProfileInfo";
 import SearchResult from "./Pages/SearchResult/SearchResult/SearchResult";
 
 export const UserContext = createContext()
@@ -28,6 +29,7 @@ function App() {
             <Route path="/profile/:key" element={<PrivateRoute>
               <Profile/>
             </PrivateRoute>} />
+            <Route path="/profileInfo/:key" element={<ProfileInfo />} />
           </Routes>
         </Router>
       </UserContext.Provider>

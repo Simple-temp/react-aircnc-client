@@ -1,0 +1,39 @@
+.appbar{
+    box-shadow: none !important;
+}
+.tablevel{
+    text-transform: capitalize !important;
+}
+.keepmind{
+    border-top:1px solid rgb(177, 177, 177);
+    padding: 10px 0 20px 0;
+}
+.keepmind ul{
+    padding-left: 0rem;
+    list-style:none;
+}
+.keepmind ul li {
+    margin-top:30px;
+}
+.keepmind ul li img {
+    width:23px;
+}
+.keepmind ul li span {
+    margin-left:20px;
+}
+.reviewrules h3{
+    text-transform:capitalize
+}
+.keepmind h5{
+    text-transform:capitalize 
+}
+.rulesdate small {
+    background-color: rgb(231, 231, 231);
+    padding:8px;
+}
+.rulesdate p{
+    margin-top:14px;
+}
+.who-coming p{
+    font-size:15px;
+}

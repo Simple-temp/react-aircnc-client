@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "./ProfileBody.css"
 import home from "../../../img/home.png"
 import check from "../../../img/check.png"
@@ -94,7 +94,7 @@ const ProfileBody = () => {
                                         <li><b>Total</b> <span>${total}</span></li>
                                     </ul>
                                 </div>
-                                <button className='search-btn d-block w-100'>reserve</button>
+                                <Link to={`/profileInfo/${key}`} className='Link'><button className='search-btn d-block w-100'>reserve</button></Link>
                             </div>
                         </div>
                     </div>
