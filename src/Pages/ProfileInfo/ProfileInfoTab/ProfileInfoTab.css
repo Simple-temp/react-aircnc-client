@@ -37,3 +37,15 @@
 .who-coming p{
     font-size:15px;
 }
+textarea{
+    border:1px solid rgba(43,222,140,255);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding:14px;
+}
+.who-coming h3 {
+    text-transform:capitalize;
+}

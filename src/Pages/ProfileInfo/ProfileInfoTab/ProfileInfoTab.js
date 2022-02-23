@@ -12,6 +12,12 @@ import baby from "../../../img/baby.png"
 import pet from "../../../img/pet.png"
 import party from "../../../img/party.png"
 import smoking from "../../../img/sm.png"
+import BankPayment from '../BankPayment/BankPayment';
+import PaypalPayment from '../PaypalPayment/PaypalPayment';
+import { CardElement, Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51KJhEFFesKPGWiP3YH9pPx3aDpRX44wil8afCvneKe2ziTVEPoBgXnEFnanssjwK1RbAeyKbQV5kSBYGcjeOsxoB00m0ZXAjF8');
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -52,7 +58,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ProfileInfoTab = ({startdate,enddate}) => {
+const ProfileInfoTab = ({ startdate, enddate }) => {
+
+    const options = {
+        // passing the client secret obtained from the server
+        clientSecret: '{{CLIENT_SECRET}}',
+    };
 
     const classes = useStyles();
     const theme = useTheme();
@@ -118,11 +129,16 @@ const ProfileInfoTab = ({startdate,enddate}) => {
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     <div className="who-coming">
                         <h3>traveling for work</h3>
-                        <p>Say hello to youe host <br /> let rowdra know a little about your self and why you are comming </p>
+                        <p className='my-4' >Say hello to youe host <br /> let rowdra know a little about your self and why you are comming </p>
+                        <textarea name="sms" id="" cols="20" rows="6" className='w-100 textarea' placeholder='Optional'></textarea>
+                        <button className='search-btn mt-4'>continue</button>
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
+                    <Elements stripe={stripePromise}>
+                        <BankPayment></BankPayment>
+                    </Elements>
+                    <PaypalPayment></PaypalPayment>
                 </TabPanel>
             </SwipeableViews>
         </div>
