@@ -86,7 +86,7 @@ const SearchBar = () => {
         const applyInfo = { ...info, adults: parent, child: child, baby: baby, ...selectedDate }
 
         console.log(applyInfo)
-        fetch('http://localhost:4000/applyguest', {
+        fetch('https://aircnc-server-node.herokuapp.com/applyguest', {
             method: 'POST',
             body: JSON.stringify(applyInfo),
             headers: {
@@ -214,7 +214,7 @@ export default SearchBar;
     // const [filter,setFilter] = useState([])
 
     // useEffect(()=>{
-    //     fetch(`http://localhost:4000/getitem`)
+    //     fetch(`https://aircnc-server-node.herokuapp.com/getitem`)
     //     .then(res=>res.json())
     //     .then(data=>setGetitem(data))
     // },[])

@@ -11,7 +11,7 @@ const ProfileHeader = () => {
     const [keyResult, setKeyResult] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:4000/keyresult/${key}`)
+        fetch(`https://aircnc-server-node.herokuapp.com/keyresult/${key}`)
             .then(res => res.json())
             .then(data => setKeyResult(data))
     }, [])

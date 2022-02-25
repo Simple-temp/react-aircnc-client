@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import "./ProfileInfoTab.css"
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
@@ -82,6 +82,33 @@ const ProfileInfoTab = ({ startdate, enddate }) => {
 
     // const day = ["saturday","sunday","monday","tuesday","wednesday","thursday","friday"]
 
+    const [sms, setSms] = useState({})
+
+    const handleblur = (e) => {
+        const newSms = { ...sms }
+        newSms[e.target.name] = e.target.value
+        setSms(newSms)
+        console.log(newSms)
+    }
+
+    const handleSubmit = (e) =>{
+
+        fetch(`https://aircnc-server-node.herokuapp.com/postsms`, {
+            method: 'POST',
+            body: JSON.stringify(sms),
+            headers: {
+                'Content-type': 'application/json'
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                alert("sms was sent")
+            });
+            
+            e.preventDefault()
+    }
+
     return (
         <div className={classes.root}>
             <AppBar position="static" color="#fff" className='appbar'>
@@ -133,11 +160,13 @@ const ProfileInfoTab = ({ startdate, enddate }) => {
                     <div className="who-coming">
                         <div className="who-heading d-flex">
                             <h3>traveling for work</h3>
-                            <img src={userInfo.img} alt="" style={{width:"40px",height:"40px",borderRadius:"50px"}} />
+                            <img src={userInfo.img} alt="" style={{ width: "40px", height: "40px", borderRadius: "50px" }} />
                         </div>
                         <p className='my-4' >Say hello to youe host <br /> let rowdra know a little about your self and why you are comming </p>
-                        <textarea name="sms" id="" cols="20" rows="6" className='w-100 textarea' placeholder='Optional'></textarea>
-                        <button className='search-btn mt-4'>continue</button>
+                        <form action="" onSubmit={handleSubmit}>
+                            <textarea required onBlur={handleblur} name="sms" id="" cols="20" rows="6" className='w-100 textarea' placeholder='Optional'></textarea>
+                            <input type="submit" value="continue" className='search-btn mt-4' />
+                        </form>
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>

@@ -32,7 +32,7 @@ const AddData = () => {
         formData.append('des', info.des)
         formData.append('price', info.price)
 
-        fetch(`http://localhost:4000/postitem`, {
+        fetch(`https://aircnc-server-node.herokuapp.com/postitem`, {
             method: 'POST',
             body: formData
         })

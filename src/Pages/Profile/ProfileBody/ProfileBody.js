@@ -16,13 +16,13 @@ const ProfileBody = () => {
     const [getguests, setGetguests] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:4000/keyresult/${key}`)
+        fetch(`https://aircnc-server-node.herokuapp.com/keyresult/${key}`)
             .then(res => res.json())
             .then(data => setKeyResult(data))
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:4000/getdetails?email=` + userInfo.email)
+        fetch(`https://aircnc-server-node.herokuapp.com/getdetails?email=` + userInfo.email)
             .then(res => res.json())
             .then(user => {
                 setGetguests(user)

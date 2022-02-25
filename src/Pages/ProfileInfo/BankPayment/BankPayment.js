@@ -46,10 +46,10 @@ const BankPayment = () => {
             <form onSubmit={handleSubmit}>
                 <CardElement className="cardelement" />
                 {
-                    errormassege && <p>{errormassege.message}</p>
+                    errormassege && <p className='mt-3 text-capitalize' style={{color:"red"}} >{errormassege.message}</p>
                 }
                 {
-                    succesmassege && <p>payment done!</p>
+                    succesmassege && <p className='mt-3 text-capitalize' style={{color:"green"}}>payment done!</p>
                 }
                 <button type="submit" disabled={!stripe || !elements} className="search-btn mt-4">
                     continue to pay
