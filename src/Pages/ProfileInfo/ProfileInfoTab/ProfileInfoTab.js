@@ -140,7 +140,7 @@ const ProfileInfoTab = ({ startdate, enddate }) => {
                                 <p>Check-in <br /> After 12:00 pm</p>
                             </div>
                             <div className="checkout">
-                                <small>{new Date(startdate).toDateString()}</small>
+                                <small>{new Date(enddate).toDateString()}</small>
                                 <p>Checkout <br /> 11:00 am</p>
                             </div>
                         </div>
