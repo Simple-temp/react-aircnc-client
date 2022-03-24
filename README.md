@@ -7,4 +7,5 @@ This agency website is responsive.total 5 page in this website.<br>
 3. select a result then go to login page<br>
 4. after login you will see the profile page <br>
 5. then some rules , some room details and your message (that is optional), then the payment method.
+6. there have also /addNew page
 
