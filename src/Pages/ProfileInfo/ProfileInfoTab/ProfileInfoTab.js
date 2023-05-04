@@ -93,7 +93,7 @@ const ProfileInfoTab = ({ startdate, enddate }) => {
 
     const handleSubmit = (e) =>{
 
-        fetch(`https://aircnc-server-node.herokuapp.com/postsms`, {
+        fetch(`https://aircnc-u5qx.onrender.com/postsms`, {
             method: 'POST',
             body: JSON.stringify(sms),
             headers: {

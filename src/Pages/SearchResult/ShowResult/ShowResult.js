@@ -9,7 +9,7 @@ const ShowResult = () => {
     const [getSearchItem, setgetSearchitem] = useState([])
 
     useEffect(() => {
-        fetch(`https://aircnc-server-node.herokuapp.com/getitem?search=` + searchInput)
+        fetch(`https://aircnc-u5qx.onrender.com/getitem?search=` + searchInput)
             .then(res => res.json())
             .then(data => setgetSearchitem(data))
     }, [searchInput])
