@@ -32,7 +32,7 @@ const AddData = () => {
         formData.append('des', info.des)
         formData.append('price', info.price)
 
-        fetch(`https://aircnc-u5qx.onrender.com/postitem`, {
+        fetch(`https://aircnc00.onrender.com/postitem`, {
             method: 'POST',
             body: formData
         })

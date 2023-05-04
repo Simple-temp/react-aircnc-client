@@ -16,13 +16,13 @@ const ProfileBody = () => {
     const [getguests, setGetguests] = useState({})
 
     useEffect(() => {
-        fetch(`https://aircnc-u5qx.onrender.com/keyresult/${key}`)
+        fetch(`https://aircnc00.onrender.com/keyresult/${key}`)
             .then(res => res.json())
             .then(data => setKeyResult(data))
     }, [])
 
     useEffect(() => {
-        fetch(`https://aircnc-u5qx.onrender.com/getdetails?email=` + userInfo.email)
+        fetch(`https://aircnc00.onrender.com/getdetails?email=` + userInfo.email)
             .then(res => res.json())
             .then(user => {
                 setGetguests(user)

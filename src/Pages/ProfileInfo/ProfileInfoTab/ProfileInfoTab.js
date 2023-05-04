@@ -93,7 +93,7 @@ const ProfileInfoTab = ({ startdate, enddate }) => {
 
     const handleSubmit = (e) =>{
 
-        fetch(`https://aircnc-u5qx.onrender.com/postsms`, {
+        fetch(`https://aircnc00.onrender.com/postsms`, {
             method: 'POST',
             body: JSON.stringify(sms),
             headers: {

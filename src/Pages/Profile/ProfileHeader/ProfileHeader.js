@@ -11,7 +11,7 @@ const ProfileHeader = () => {
     const [keyResult, setKeyResult] = useState({})
 
     useEffect(() => {
-        fetch(`https://aircnc-u5qx.onrender.com/keyresult/${key}`)
+        fetch(`https://aircnc00.onrender.com/keyresult/${key}`)
             .then(res => res.json())
             .then(data => setKeyResult(data))
     }, [])

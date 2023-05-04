@@ -86,7 +86,7 @@ const SearchBar = () => {
         const applyInfo = { ...info, adults: parent, child: child, baby: baby, ...selectedDate }
 
         console.log(applyInfo)
-        fetch('https://aircnc-u5qx.onrender.com/applyguest', {
+        fetch('https://aircnc00.onrender.com/applyguest', {
             method: 'POST',
             body: JSON.stringify(applyInfo),
             headers: {
@@ -214,7 +214,7 @@ export default SearchBar;
     // const [filter,setFilter] = useState([])
 
     // useEffect(()=>{
-    //     fetch(`https://aircnc-u5qx.onrender.com/getitem`)
+    //     fetch(`https://aircnc00.onrender.com/getitem`)
     //     .then(res=>res.json())
     //     .then(data=>setGetitem(data))
     // },[])
